@@ -29,3 +29,5 @@ phases:
       - aws sts get-caller-identity
       - kubectl config get-contexts
       - kubectl version
+      - echo Deploying to EKS...
+      - kubectl apply -f deployments/
