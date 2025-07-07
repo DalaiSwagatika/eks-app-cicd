@@ -27,6 +27,5 @@ phases:
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
       - export KUBECONFIG=/root/.kube/config
       - aws sts get-caller-identity
+      - kubectl config get-contexts
       - kubectl version
-      - echo Deploying to EKS...
-      - kubectl apply -f deployments/
