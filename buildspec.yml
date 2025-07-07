@@ -30,4 +30,4 @@ phases:
       - kubectl config get-contexts
       - kubectl version
       - echo Deploying to EKS...
-      - kubectl apply -f deployments/
+      - kubectl apply -f deployments/app1-deployment.yaml
