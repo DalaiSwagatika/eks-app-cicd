@@ -14,15 +14,8 @@ phases:
   build:
     commands:
       - echo Building Docker images...
-      - docker build -t app1 ./app1
-      - docker tag app1:latest $ECR_REGISTRY/app1-repo:latest
-      - docker build -t app2 ./app2
-      - docker tag app2:latest $ECR_REGISTRY/app2-repo:latest
   post_build:
     commands:
-      - echo Pushing Docker images...
-      - docker push $ECR_REGISTRY/app1-repo:latest
-      - docker push $ECR_REGISTRY/app2-repo:latest
       - echo Configuring kubectl...
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
       - export KUBECONFIG=/root/.kube/config
